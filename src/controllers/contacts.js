@@ -13,7 +13,8 @@ export const getContactsController = async (req, res, next) => {
     throw createHttpError(404, 'Contacts not found');
   }
   res.status(200).json({
-    status: 'Successfully found contacts!',
+    status: 200,
+    message: 'Successfully found contacts!',
     data: contacts,
   });
 };
@@ -25,7 +26,8 @@ export const getContactsByIdController = async (req, res, next) => {
     throw createHttpError(404, 'Contact not found');
   }
   res.status(200).json({
-    status: 'Successfully found contact with id ${contactId}!',
+    status: 200,
+    message: 'Successfully found contact with id ${contactId}!',
     data: contact,
   });
 };
@@ -63,7 +65,6 @@ export const upsertContactController = async (req, res) => {
     next(createHttpError(404, `Contact not found`));
     return;
   }
-
   const status = result.isNew ? 201 : 200;
   res.status(status).json({
     status,
@@ -83,65 +84,7 @@ export const patchContactController = async (req, res) => {
 
   res.json({
     status: 200,
-    message: `Successfully patched a student!`,
+    message: `Successfully patched a contact!`,
     data: result.contact,
   });
 };
-
-// import createHttpError from 'http-errors';
-
-// export const getContactsByIdContriller = async (req, res, next) => {
-//   const { contactsId } = req.params;
-//   const contacts = await getAllContacts(contactsId);
-
-//   if (!contact) {
-//     throw createHttpError(404`Contact not found`);
-//   }
-//   res.json({
-//     status: 200,
-//     message: `Succsessfully found contacts`,
-//     data: contacts,
-//   });
-// };
-
-// export const getContactsByIdContriller = async (req, res, next) => {
-// try {
-//     const contacts = await getAllContacts();
-//     res.json({
-//       status: 200,
-//       message: `Succsessfully found contacts`,
-//       data: contacts,
-//     });
-//   } catch (err) {
-//     next(err);
-//   }
-// };
-
-// import { getAllContacts, getContactsById } from '../services/contacts.js';
-
-// export const getContactsController = async (req, res) => {
-//   const contacts = await getAllContacts();
-
-//   res.json({
-//     stayus: 200,
-//     message: 'Seccessfully found contacts!',
-//     data: contacts,
-//   });
-// };
-
-// export const getContactsByIdContriller = async (req, res) => {
-//   const { contactsId } = req.params;
-//   const contact = await getContactsById(contactsId);
-
-//   if (!contact) {
-//     res.status(404).json({
-//       message: 'Contact not found',
-//     });
-//     return;
-//   }
-//   res.json({
-//     status: 200,
-//     message: `Succsessfully fond contact with id ${contactsId}`,
-//     data: contact,
-//   });
-// };
