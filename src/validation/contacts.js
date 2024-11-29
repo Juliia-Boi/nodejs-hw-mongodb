@@ -13,10 +13,6 @@ export const createContactSchema = Joi.object({
   contactType: Joi.string(),
 });
 
-// const validationResult = createContactSchema.validate(userData, {
-//   abortEarly: false,
-// });
-
 export const updateContactSchema = Joi.object({
   name: Joi.string().min(3).max(20),
   phoneNumber: Joi.string().min(3).max(20).required(),
