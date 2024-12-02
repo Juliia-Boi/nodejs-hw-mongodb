@@ -55,7 +55,6 @@ export const createContactController = async (req, res) => {
     status: 201,
     message: 'Successfully created a contact!',
     data: contact,
-    // data: contact,
   });
 };
 
