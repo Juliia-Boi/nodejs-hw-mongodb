@@ -3,7 +3,8 @@ import pino from 'pino-http';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import { env } from './utils/env.js';
-import router from './routers/index.js';
+// import router from './routers/index.js';
+import authRoutes from './routers/auth.js';
 import { errorHandler } from './middlewares/errorHandler.js';
 import { notFoundHandler } from './middlewares/notFoundHandler.js';
 
