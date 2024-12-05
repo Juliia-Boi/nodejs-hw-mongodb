@@ -16,9 +16,9 @@ export const setupServer = () => {
   app.use(cors());
   app.use(cookieParser());
 
-  app.use(router);
+  app.use('/auth', authRoutes);
 
-  app.use('*', notFoundHandler);
+  app.use(notFoundHandler);
 
   app.use(errorHandler);
 
