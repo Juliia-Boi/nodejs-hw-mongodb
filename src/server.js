@@ -4,7 +4,6 @@ import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import { env } from './utils/env.js';
 import router from './routers/index.js';
-import authRoutes from './routers/auth.js';
 import { errorHandler } from './middlewares/errorHandler.js';
 import { notFoundHandler } from './middlewares/notFoundHandler.js';
 
@@ -18,7 +17,6 @@ export const setupServer = () => {
   app.use(cookieParser());
   app.use(pino());
 
-  app.use('/auth', authRoutes);
   app.use(router);
 
   app.use(notFoundHandler);
